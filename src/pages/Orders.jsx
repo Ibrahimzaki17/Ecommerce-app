@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 import Header from "../components/Header";
 import "./orders.css";
 
@@ -52,11 +52,11 @@ function Orders() {
               </div>
 
               <div className="product-actions">
-                <Link to="/tracking">
+                <NavLink to="/tracking">
                   <button className="track-package-button button-secondary">
                     Track package
                   </button>
-                </Link>
+                </NavLink>
               </div>
 
               <div className="product-image-container">

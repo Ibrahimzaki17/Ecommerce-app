@@ -1,6 +1,6 @@
 import "./checkout.css";
 import "./checkout-header.css";
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 
 function CheckOut() {
   return (
@@ -9,17 +9,17 @@ function CheckOut() {
       <div className="checkout-header">
         <div className="header-content">
           <div className="checkout-header-left-section">
-            <Link to="/">
+            <NavLink to="/">
               <img className="logo" src="images/logo.png" />
               <img className="mobile-logo" src="images/mobile-logo.png" />
-            </Link>
+            </NavLink>
           </div>
 
           <div className="checkout-header-middle-section">
             Checkout (
-            <Link className="return-to-home-link" to="/">
+            <NavLink className="return-to-home-NavLink" to="/">
               3 items
-            </Link>
+            </NavLink>
             )
           </div>
 
@@ -54,10 +54,10 @@ function CheckOut() {
                     <span>
                       Quantity: <span className="quantity-label">2</span>
                     </span>
-                    <span className="update-quantity-link link-primary">
+                    <span className="update-quantity-NavLink NavLink-primary">
                       Update
                     </span>
-                    <span className="delete-quantity-link link-primary">
+                    <span className="delete-quantity-NavLink NavLink-primary">
                       Delete
                     </span>
                   </div>
@@ -70,7 +70,7 @@ function CheckOut() {
                   <div className="delivery-option">
                     <input
                       type="radio"
-                      checked
+                      defaultChecked
                       className="delivery-option-input"
                       name="delivery-option-1"
                     />
@@ -135,10 +135,10 @@ function CheckOut() {
                     <span>
                       Quantity: <span className="quantity-label">1</span>
                     </span>
-                    <span className="update-quantity-link link-primary">
+                    <span className="update-quantity-NavLink NavLink-primary">
                       Update
                     </span>
-                    <span className="delete-quantity-link link-primary">
+                    <span className="delete-quantity-NavLink NavLink-primary">
                       Delete
                     </span>
                   </div>
@@ -165,7 +165,7 @@ function CheckOut() {
                   <div className="delivery-option">
                     <input
                       type="radio"
-                      checked
+                      defaultChecked
                       className="delivery-option-input"
                       name="delivery-option-2"
                     />

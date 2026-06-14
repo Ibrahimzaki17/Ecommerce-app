@@ -74,16 +74,16 @@ input, select, button {
   overflow: hidden;
 }
 
-.link-primary {
+.NavLink-primary {
   color: rgb(25, 135, 84);
   cursor: pointer;
 }
 
-.link-primary:hover {
+.NavLink-primary:hover {
   opacity: 0.75;
 }
 
-.link-primary:active {
+.NavLink-primary:active {
   opacity: 0.5;
 }
 
