@@ -4,12 +4,20 @@ import { Routes, Route } from 'react-router';
 import CheckOut from './pages/CheckOut.jsx';
 import Orders from './pages/Orders.jsx';
 import TrackingPage from './pages/TrackingPage.jsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 
 function App() {
 
   const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    axios.get("/api/cart-items")
+      .then((response) => {
+        setCart(response.data)
+    })
+  }, []);
 
   return(
     <> 
