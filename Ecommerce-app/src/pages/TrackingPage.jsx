@@ -2,11 +2,11 @@ import Header from "../components/Header";
 import "./tracking.css";
 import { NavLink } from "react-router";
 
-function TrackingPage() {
+function TrackingPage({cart}) {
   return (
     <>
       <title>Tracking</title>
-      <Header />
+      <Header cart={cart} />
 
       <div className="tracking-page">
         <div className="order-tracking">
