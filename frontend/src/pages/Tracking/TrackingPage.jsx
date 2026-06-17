@@ -32,7 +32,7 @@ function TrackingPage({ cart }) {
 
   const totlaDeliveryTimeMs = orderProduct.estimatedDeliveryTimeMs - order.orderTimeMs;
   const timePassedMs = dayjs().valueOf() - order.orderTimeMs;
-  //let timePassedMs = totlaDeliveryTimeMs * 0.5
+  //let timePassedMs = totlaDeliveryTimeMs * 0.3
   let deliveryPercent = (timePassedMs / totlaDeliveryTimeMs) * 100;
   if(deliveryPercent > 100){
     deliveryPercent = Math.min(deliveryPercent, 100)
@@ -71,7 +71,7 @@ function TrackingPage({ cart }) {
           <div className="progress-labels-container">
             <div className={`progress-label ${isPreparing && 'current-status'}`}>Preparing</div>
             <div className={`progress-label ${isShipped && 'current-status'}`}>Shipped</div>
-            <div className={`progress-label ${!(isShipped && isPreparing) && 'current-status'}`}>Delivered</div>
+            <div className={`progress-label ${!(isShipped || isPreparing) && 'current-status'}`}>Delivered</div>
           </div>
 
           <div className="progress-bar-container">
