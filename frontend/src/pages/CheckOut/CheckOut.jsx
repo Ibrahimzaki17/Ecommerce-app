@@ -14,12 +14,18 @@ function CheckOut({ cart, loadCart }) {
       let response = await axios.get('/api/delivery-options?expand=estimatedDeliveryTime');
       setDeliveryOptions(response.data);
 
-      response = await axios.get('/api/payment-summary');
-      setPaymentSummary(response.data)
     };
 
     fetchCheckOutData();
-  }, [cart]);
+  }, []);
+
+  useEffect(() => {
+    const fetchCartData = async () => {
+     const response = await axios.get('/api/payment-summary');
+     setPaymentSummary(response.data)
+    };
+    fetchCartData();
+  },[cart])
   
   /*
   useEffect(() => {

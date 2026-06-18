@@ -1,8 +1,11 @@
 import axios from "axios";
 import { formatMoney } from "../../utils/formatMoney";
 import dayjs from "dayjs";
+import { useState } from "react";
+import CardItemDetails from './CardItemDetails.jsx'
 
-function OrderSummary({deliveryOptions,cart, loadCart}) {
+function OrderSummary({deliveryOptions ,cart, loadCart}) {
+
   return (
     <div className="order-summary">
       {deliveryOptions.length > 0 &&
@@ -15,17 +18,19 @@ function OrderSummary({deliveryOptions,cart, loadCart}) {
           if (!selectedDeliveryDate) {
             return null;
           }
-
-          const deleteCartItem = async () => {
+ /*
+         export const deleteCartItem = async () => {
             await axios.delete(`/api/cart-items/${cartItem.productId}`);
             await loadCart();
           }
-          const updateCartItem = async () => {
-            await axios.put(`/api/cart-items/${cartItem.productId}`, {
-              quantity
-            })
-            await loadCart();
-          }
+         export const updateCartItem =  () => {
+           if(updateQuantity){
+            setUpdateQuantity(false)
+           }else{
+            setUpdateQuantity(true)
+           }
+            
+          } */
 
           return (
             <div key={cartItem.productId} className="cart-item-container">
@@ -36,7 +41,18 @@ function OrderSummary({deliveryOptions,cart, loadCart}) {
                 )}
               </div>
 
-              <div className="cart-item-details-grid">
+              <CardItemDetails loadCart={loadCart} cartItem={cartItem} deliveryOptions={deliveryOptions}/>
+            </div>
+          );
+        })}
+    </div>
+  );
+}
+
+export default OrderSummary;
+
+//this is on 46 to 117
+/** <div className="cart-item-details-grid">
                 <img className="product-image" src={cartItem.product.image} />
 
                 <div className="cart-item-details">
@@ -46,11 +62,10 @@ function OrderSummary({deliveryOptions,cart, loadCart}) {
                   </div>
                   <div className="product-quantity">
                     <span>
-                      Quantity: <span className="quantity-label">{cartItem.quantity}</span>
+                      Quantity: {updateQuantity ? <input type="text" className="input-quantity" /> : <span className="quantity-label">{cartItem.quantity}</span> } 
+                       
                     </span>
-                    <span className="update-quantity-NavLink NavLink-primary"
-                     
-                    >
+                    <span className="update-quantity-NavLink NavLink-primary" onClick={updateCartItem} >
                       Update
                     </span>
                     <span className="delete-quantity-NavLink NavLink-primary"
@@ -108,12 +123,4 @@ function OrderSummary({deliveryOptions,cart, loadCart}) {
                     );
                   })}
                 </div>
-              </div>
-            </div>
-          );
-        })}
-    </div>
-  );
-}
-
-export default OrderSummary;
+              </div> */

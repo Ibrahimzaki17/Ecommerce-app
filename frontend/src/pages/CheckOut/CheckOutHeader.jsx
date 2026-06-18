@@ -15,7 +15,7 @@ function CheckOutHeader() {
         <div className="checkout-header-middle-section">
           Checkout (
           <NavLink className="return-to-home-NavLink" to="/">
-            3 items
+             items
           </NavLink>
           )
         </div>

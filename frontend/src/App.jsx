@@ -7,6 +7,8 @@ import TrackingPage from './pages/Tracking/TrackingPage.jsx';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+window.axios = axios
+
 
 function App() {
 
@@ -38,7 +40,7 @@ function App() {
     <Routes>
       <Route index element={<HomePage cart={cart} products={products} setProducts={setProducts} loadCart={loadCart} />} />
       <Route path='checkout' element={<CheckOut cart={cart} loadCart={loadCart}/>} />
-      <Route path='orders' element={<Orders cart={cart} products={products} />} />
+      <Route path='orders' element={<Orders cart={cart} products={products} loadCart={loadCart} />} />
       <Route path='tracking/:orderId/:productId' element={<TrackingPage cart={cart} />} />
     </Routes>
     </>
