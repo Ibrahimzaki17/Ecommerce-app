@@ -15,6 +15,18 @@ function OrderSummary({deliveryOptions,cart, loadCart}) {
           if (!selectedDeliveryDate) {
             return null;
           }
+
+          const deleteCartItem = async () => {
+            await axios.delete(`/api/cart-items/${cartItem.productId}`);
+            await loadCart();
+          }
+          const updateCartItem = async () => {
+            await axios.put(`/api/cart-items/${cartItem.productId}`, {
+              quantity
+            })
+            await loadCart();
+          }
+
           return (
             <div key={cartItem.productId} className="cart-item-container">
               <div className="delivery-date">
@@ -36,10 +48,14 @@ function OrderSummary({deliveryOptions,cart, loadCart}) {
                     <span>
                       Quantity: <span className="quantity-label">{cartItem.quantity}</span>
                     </span>
-                    <span className="update-quantity-NavLink NavLink-primary">
+                    <span className="update-quantity-NavLink NavLink-primary"
+                     
+                    >
                       Update
                     </span>
-                    <span className="delete-quantity-NavLink NavLink-primary">
+                    <span className="delete-quantity-NavLink NavLink-primary"
+                     onClick={deleteCartItem}
+                    >
                       Delete
                     </span>
                   </div>

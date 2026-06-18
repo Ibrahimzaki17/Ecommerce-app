@@ -1,6 +1,17 @@
+import axios from "axios";
 import { formatMoney } from "../../utils/formatMoney";
+import { useNavigate } from "react-router";
 
-function PaymentSummary({ paymentSummary }) {
+function PaymentSummary({ paymentSummary, loadCart }) {
+
+  const navigate = useNavigate();
+
+  const createOder = async () => {
+    await axios.post('/api/orders');
+    await loadCart();
+    navigate('/orders')
+  }
+
   return (
     <>
       {paymentSummary && (
@@ -43,7 +54,9 @@ function PaymentSummary({ paymentSummary }) {
               </div>
             </div>
 
-            <button className="place-order-button button-primary">
+            <button className="place-order-button button-primary"
+             onClick={createOder}
+            >
               Place your order
             </button>
           </div>
