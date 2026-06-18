@@ -5,7 +5,7 @@ import CheckOutHeader from "./CheckOutHeader";
 import OrderSummary from "./OrderSummary";
 import PaymentSummary from "./PaymentSummary";
 
-function CheckOut({ cart }) {
+function CheckOut({ cart, loadCart }) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
   const [paymentSummary, setPaymentSummary] = useState(null);
 
@@ -19,7 +19,7 @@ function CheckOut({ cart }) {
     };
 
     fetchCheckOutData();
-  }, []);
+  }, [cart]);
   
   /*
   useEffect(() => {
@@ -44,7 +44,7 @@ function CheckOut({ cart }) {
 
         <div className="checkout-grid">
           
-          <OrderSummary deliveryOptions={deliveryOptions} cart={cart} />
+          <OrderSummary deliveryOptions={deliveryOptions} cart={cart} loadCart={loadCart} />
 
          <PaymentSummary paymentSummary={paymentSummary} />
         </div>
