@@ -26,19 +26,6 @@ function CheckOut({ cart, loadCart }) {
     };
     fetchCartData();
   },[cart])
-  
-  /*
-  useEffect(() => {
-    axios
-      .get("/api/delivery-options?expand=estimatedDeliveryTime")
-      .then((response) => {
-        setDeliveryOptions(response.data);
-      });
-    axios.get("/api/payment-summary").then((response) => {
-      setPaymentSummary(response.data);
-    });
-  }, []);
-  */
 
   return (
     <>
@@ -60,3 +47,17 @@ function CheckOut({ cart, loadCart }) {
 }
 
 export default CheckOut;
+
+
+  /*
+  useEffect(() => {
+    axios
+      .get("/api/delivery-options?expand=estimatedDeliveryTime")
+      .then((response) => {
+        setDeliveryOptions(response.data);
+      });
+    axios.get("/api/payment-summary").then((response) => {
+      setPaymentSummary(response.data);
+    });
+  }, []);
+  */
